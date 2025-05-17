@@ -84,6 +84,23 @@ public function example()
     ];
 }
 ```
+```php
+// In Factory
+class UserFactory extends Factory
+{
+    public function definition(): array
+    {
+        $faker = \Faker\Factory::create('fr_TN');
+        $faker->addProvider(new FakerTunisia\Tunisia($faker));
+        return [
+            'name' => $faker->name,
+            'address' => $faker->address,
+            'phone' => $faker->phoneNumber,
+            'company' => $faker->company,
+        ];
+    }
+}
+```
 
 ## Data Sources
 
