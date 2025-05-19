@@ -2,15 +2,12 @@
 
 namespace FakerTunisia;
 
-use Faker\Provider\Base;
-
 /**
- * Provider for Tunisian (fr_TN) fake data
- * Generates Arabic data using the French alphabet
+ * Provider for Tunisian (en_TN) fake data
+ * Generates Arabic data using the English alphabet and formats
  */
-class Tunisia extends Base
+class EnTunisiaProvider extends BaseTunisiaProvider
 {
-    // Person data
     protected static $maleNameFormats = [
         '{{firstNameMale}} {{lastName}}',
     ];
@@ -22,7 +19,7 @@ class Tunisia extends Base
     protected static $firstNameMale = [
         'Ahmed', 'Mohamed', 'Mehdi', 'Aziz', 'Firas', 'Amine', 'Karim', 'Aymen', 'Bassem',
         'Youssef', 'Sami', 'Ali', 'Ayoub', 'Yassine', 'Skander', 'Hamza', 'Adam', 'Moncef',
-        'Khalil', 'Rayen', 'Houssem', 'Marouen', 'Bilel', 'Slim', 'Helmi', 'Oussama', 'Mouhamed',
+        'Khalil', 'Rayen', 'Houssem', 'Marouen', 'Bilel', 'Slim', 'Helmi', 'Oussama',
         'Wassim', 'Kais', 'Taha', 'Adel', 'Ghaith', 'Zied', 'Azer', 'Ibrahim', 'Raouf',
         'Taher', 'Hani', 'Midou', 'Fares', 'Sabry', 'Omar', 'Nassim', 'Bechir','Khaled',
         'Hamdi', 'Motaz', 'Achraf', 'Sofien', 'Jihed', 'Kamel', 'Rami', 'Nizar', 'Imed',
@@ -46,46 +43,48 @@ class Tunisia extends Base
         'Dhaouadi', 'Jlassi', 'Baccouche', 'Bahloul', 'Beji', 'Belhouane', 'Belouaer', 'Touiti',
         'Ben Abdallah', 'Ben Abdeljelil', 'Abahnini', 'Ayouni', 'Bouzaiene', 'Dridi', 'Rakrouki',
         'Mansour', 'Mabrouk', 'Mansouri', 'Masmoudi', 'Mahjoub', 'Messaoudi', 'Maher', 'Ben Araf',
-        'Mejri', 'Miled', 'Missaoui', 'Mbarek', 'Mbarki', 'Makhlouf', 'Marzouki',
+        'Mejri', 'Miled', 'Missaoui', 'Mbarek', 'Mbarki', 'Makhlouf', 'Marzouki', 'Helali'
     ];
     
-    // Address data
+    // Address data - English format
     protected static $streetNameFormats = [
-        'Rue {{streetName}}',
-        'Avenue {{streetName}}',
-        'Boulevard {{streetName}}',
-        'Place {{streetName}}',
+        '{{streetName}} Street',
+        '{{streetName}} Avenue',
+        '{{streetName}} Boulevard',
+        '{{streetName}} Square',
+        '{{streetName}} Road',
     ];
     
     protected static $addressFormats = [
-        "{{streetName}} {{buildingNumber}}\n{{postcode}} {{city}}\nTUN",
+        "{{buildingNumber}} {{streetName}}\n{{city}}, {{postcode}}\nTunisia",
     ];
     
+    // Street names adapted to English format
     protected static $streetName = [
-        'de Carthage', 'de Tunis', 'de la Liberté', 'Habib Bourguiba', 'de Paris',
-        'de France', 'de la République', 'Mohamed V', 'Ibn Khaldoun', 'Farhat Hached',
-        'Hédi Chaker', 'de l\'Indépendance', 'Tahar Sfar', 'Ali Belhouane', 'Bab Souika',
+        'Carthage', 'Tunis', 'Liberty', 'Habib Bourguiba', 'Paris',
+        'France', 'Republic', 'Mohamed V', 'Ibn Khaldoun', 'Farhat Hached',
+        'Hedi Chaker', 'Independence', 'Tahar Sfar', 'Ali Belhouane', 'Bab Souika',
         'Bab Jedid', 'Bab Bhar', 'Bab Saadoun', 'Bab El Khadra', 'Bab Menara',
         'El Jazira', 'El Halfaouine', 'El Omrane', 'El Menzah', 'El Manar',
-        'des Orangers', 'des Jasmins', 'des Palmiers', 'de la Médina', 'de la Kasbah'
+        'Orange', 'Jasmine', 'Palm', 'Medina', 'Kasbah'
     ];
     
     protected static $city = [
-        'Tunis', 'Sfax', 'Sousse', 'Kairouan', 'Bizerte', 'Gabès', 'Ariana', 'Gafsa',
-        'Monastir', 'Ben Arous', 'Kasserine', 'Médenine', 'Nabeul', 'Tataouine', 'Béja',
+        'Tunis', 'Sfax', 'Sousse', 'Kairouan', 'Bizerte', 'Gabes', 'Ariana', 'Gafsa',
+        'Monastir', 'Ben Arous', 'Kasserine', 'Medenine', 'Nabeul', 'Tataouine', 'Beja',
         'Kef', 'Mahdia', 'Sidi Bouzid', 'Jendouba', 'Tozeur', 'Siliana', 'Zaghouan',
-        'Kébili', 'Manouba', 'La Marsa', 'Hammamet', 'Djerba', 'Zarzis', 'Douz',
+        'Kebili', 'Manouba', 'La Marsa', 'Hammamet', 'Djerba', 'Zarzis', 'Douz',
         'Tebourba', 'Menzel Bourguiba', 'Mateur', 'Korba', 'Hammam-Lif', 'Hammam Sousse'
     ];
     
     protected static $governorate = [
         'Tunis', 'Ariana', 'Ben Arous', 'Manouba', 'Nabeul', 'Zaghouan', 'Bizerte',
-        'Béja', 'Jendouba', 'Kef', 'Siliana', 'Kairouan', 'Kasserine', 'Sidi Bouzid',
-        'Sousse', 'Monastir', 'Mahdia', 'Sfax', 'Gabès', 'Médenine', 'Tataouine',
-        'Gafsa', 'Tozeur', 'Kébili'
+        'Beja', 'Jendouba', 'Kef', 'Siliana', 'Kairouan', 'Kasserine', 'Sidi Bouzid',
+        'Sousse', 'Monastir', 'Mahdia', 'Sfax', 'Gabes', 'Medenine', 'Tataouine',
+        'Gafsa', 'Tozeur', 'Kebili'
     ];
     
-    // Phone data
+    // Phone data - same format
     protected static $mobileFormats = [
         '+216 2# ## ## ##', // Ooredoo
         '+216 4# ## ## ##', // Elissa (TT's MVNO)
@@ -100,35 +99,43 @@ class Tunisia extends Base
         '+216 72 ## ## ##', // Bizerte, Nabeul, Zaghouan
         '+216 73 ## ## ##', // Sousse, Monastir, Mahdia
         '+216 74 ## ## ##', // Sfax
-        '+216 75 ## ## ##', // Gabès, Médenine, Tataouine, Kébili
+        '+216 75 ## ## ##', // Gabes, Medenine, Tataouine, Kebili
         '+216 76 ## ## ##', // Gafsa, Tozeur, Sidi Bouzid
         '+216 77 ## ## ##', // Kairouan, Kasserine
-        '+216 78 ## ## ##', // Béja, Jendouba, Kef, Siliana
+        '+216 78 ## ## ##', // Beja, Jendouba, Kef, Siliana
     ];
     
-    // Company data
+    // Company data - English format
     protected static $companyFormats = [
         '{{lastName}} {{companySuffix}}',
         '{{lastName}} & {{lastName}} {{companySuffix}}',
         '{{companyPrefix}} {{city}} {{companySuffix}}',
-        '{{companyPrefix}} de {{city}} {{companySuffix}}',
         '{{city}} {{companyIndustry}} {{companySuffix}}',
-        '{{companyIndustry}} de Tunisie {{companySuffix}}',
+        '{{companyIndustry}} of Tunisia {{companySuffix}}',
     ];
     
     protected static $companySuffix = [
-        'SARL', 'SA', 'SNC', 'SCS', 'SUARL', '& Fils', 'et Cie'
+        'LLC', 'Inc.', 'Ltd.', 'Co.', '& Sons', 'Group', 'Holdings'
     ];
     
     protected static $companyPrefix = [
-        'Société', 'Entreprise', 'Groupe', 'Compagnie', 'Établissements'
+        'Company', 'Enterprise', 'Group', 'Corporation', 'Establishments'
     ];
     
     protected static $companyIndustry = [
-        'Informatique', 'Textile', 'Consulting', 'Import-Export', 'Services',
-        'Technologies', 'Média', 'Communication', 'Bâtiment', 'Alimentation',
-        'Transport', 'Tourisme', 'Électronique', 'Mécanique', 'Agricole'
+        'IT', 'Textile', 'Consulting', 'Import-Export', 'Services',
+        'Technologies', 'Media', 'Communication', 'Construction', 'Food',
+        'Transport', 'Tourism', 'Electronics', 'Mechanical', 'Agricultural'
     ];
+    
+    /**
+     * Constructor
+     */
+    public function __construct($generator)
+    {
+        parent::__construct($generator);
+        $this->defaultLocale = 'en_TN';
+    }
     
     /**
      * Return a Tunisian male first name
@@ -167,7 +174,8 @@ class Tunisia extends Base
      */
     public function streetName()
     {
-        return static::randomElement(static::$streetName);
+        $format = static::randomElement(static::$streetNameFormats);
+        return str_replace('{{streetName}}', static::randomElement(static::$streetName), $format);
     }
     
     /**
@@ -232,24 +240,24 @@ class Tunisia extends Base
     
     /**
      * Return a Tunisian phone number (mobile or landline)
+     * Direct method without locale mixing
      *
      * @return string
      */
-    public function phoneNumber()
+    public function phoneNumberDirect()
     {
         $format = static::randomElement(array_merge(static::$mobileFormats, static::$landlineFormats));
         return static::numerify($format);
     }
     
     /**
-     * Return a Tunisian company name
+     * Return a Tunisian company name format
      *
      * @return string
      */
-    public function company()
+    public function companyFormat()
     {
-        $format = static::randomElement(static::$companyFormats);
-        return $this->generator->parse($format);
+        return static::randomElement(static::$companyFormats);
     }
     
     /**
@@ -280,5 +288,15 @@ class Tunisia extends Base
     public function companyIndustry()
     {
         return static::randomElement(static::$companyIndustry);
+    }
+    
+    /**
+     * Return a Tunisian address format
+     *
+     * @return string
+     */
+    public function addressFormat()
+    {
+        return static::randomElement(static::$addressFormats);
     }
 }

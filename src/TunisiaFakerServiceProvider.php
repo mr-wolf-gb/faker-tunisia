@@ -3,9 +3,10 @@
 namespace FakerTunisia;
 
 use Illuminate\Support\ServiceProvider;
-use Faker\Factory as FakerFactory;
-use FakerTunisia\Tunisia;
 
+/**
+ * Service provider for registering the Tunisia Faker providers with Laravel
+ */
 class TunisiaFakerServiceProvider extends ServiceProvider
 {
     /**
@@ -15,11 +16,11 @@ class TunisiaFakerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Register the fr_TN locale with the Tunisia provider
+        // Register the fr_TN, en_TN, and ar_TN locales with their respective providers
         $this->app->singleton('Faker', function ($app) {
-            $faker = FakerFactory::create();
-            $faker->addProvider(new Tunisia($faker));
-            return $faker;
+            // Default to fr_TN if no locale is specified
+            $locale = config('app.faker_locale', 'fr_TN');
+            return TunisiaFakerFactory::create($locale);
         });
     }
 

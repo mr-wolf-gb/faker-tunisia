@@ -1,31 +1,37 @@
 {
-  "name": "mr-wolf-gb/faker-tunisia",
-  "description": "Tunisia (fr_TN) Faker provider for Laravel 10",
-  "keywords": [
-    "faker",
-    "tunisia",
-    "faker-tunisia",
-    "laravel",
-    "faker-provider"
-  ],
-  "homepage": "https://github.com/mr-wolf-gb/faker-tunisia",
-  "type": "library",
-  "license": "MIT",
-  "autoload": {
-    "psr-4": {
-      "FakerTunisia\\": "src/"
+    "name": "mr-wolf-gb/faker-tunisia",
+    "description": "Tunisia Faker provider for Laravel",
+    "keywords": [
+        "faker",
+        "tunisia",
+        "faker-tunisia",
+        "laravel",
+        "faker-provider"
+    ],
+    "homepage": "https://github.com/mr-wolf-gb/faker-tunisia",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mr.Wolf",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "FakerTunisia\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.1",
+        "fakerphp/faker": "^1.24",
+        "illuminate/support": "^10.0|^11.0|^12.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "FakerTunisia\\TunisiaFakerServiceProvider"
+            ]
+        }
     }
-  },
-  "require": {
-    "php": "^8.1",
-    "fakerphp/faker": "^1.24",
-    "illuminate/support": "^10.0|^11.0|^12.0"
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "FakerTunisia\\TunisiaFakerServiceProvider"
-      ]
-    }
-  }
 }
