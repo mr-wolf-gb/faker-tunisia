@@ -133,7 +133,12 @@ class UserFactory extends Factory
 {
     public function definition(): array
     {
+        // Using factory
         $faker = \FakerTunisia\TunisiaFakerFactory::create('ar_TN');
+        // Or add as provider
+        $this->faker->addProvider(new \FakerTunisia\FrTunisiaProvider($this->faker));
+        // $this->faker->addProvider(new \FakerTunisia\EnTunisiaProvider($this->faker));
+        // $this->faker->addProvider(new \FakerTunisia\ArTunisiaProvider($this->faker));
 
         return [
             'name' => $faker->name,
